@@ -10,6 +10,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/80",
+        navbar:
+          "h-12 rounded-[var(--radius-pill)] bg-primary px-10 text-xl font-semibold leading-[1.75] tracking-normal text-primary-foreground shadow-[0_0_80px_rgba(255,255,255,0.12)] hover:bg-primary-hover focus-visible:ring-ring/50",
         outline:
           "border-border bg-background shadow-xs hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         secondary:
