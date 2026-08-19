@@ -19,31 +19,28 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative z-10 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] pt-4 pb-8 lg:pt-20 lg:pb-12"
+      className="relative z-10 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] pt-24 pb-12 sm:pt-28 lg:pt-32 lg:pb-16"
     >
-      <div className="pointer-events-none absolute left-1/2 top-[-5%] -translate-x-1/2 h-[280px] w-[280px] rounded-full bg-[#b66900]/30 blur-[90px] sm:h-[350px] sm:w-[350px] lg:left-[-10%] lg:top-[-10%] lg:translate-x-0 lg:h-[500px] lg:w-[500px] lg:blur-[120px]" />
+      <div className="pointer-events-none absolute left-1/2 top-[-5%] h-[280px] w-[280px] -translate-x-1/2 rounded-full bg-[#b66900]/30 blur-[90px] sm:h-[350px] sm:w-[350px] lg:left-[-10%] lg:top-[-10%] lg:h-[500px] lg:w-[500px] lg:translate-x-0 lg:blur-[120px]" />
       <div className="pointer-events-none absolute right-[-5%] top-[10%] h-[200px] w-[200px] rounded-full bg-[#b66900]/20 blur-[80px] lg:right-[-10%] lg:top-[0%] lg:h-[400px] lg:w-[400px] lg:blur-[100px]" />
 
       <Container className="mx-auto max-w-6xl px-4 lg:px-6">
         <div className="flex flex-col gap-6 lg:gap-10">
-          
           <div className="flex flex-col gap-3">
-            <div className="flex flex-col gap-1 lg:block">
-              <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-[64px] lg:leading-[1.2]">
-                <BlurText
-                  text="Real–Time Defect Detection"
-                  delay={120}
-                  animateBy="words"
-                  direction="top"
-                  className="text-3xl font-bold text-white sm:text-5xl lg:text-[64px] lg:leading-[1.2]"
-                />
-              </h1>
-            </div>
+            <h1 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-[64px] lg:leading-[1.15]">
+              <BlurText
+                text="Real–Time Defect Detection"
+                delay={120}
+                animateBy="words"
+                direction="top"
+                className="text-3xl font-bold leading-tight text-white sm:text-5xl lg:text-[64px] lg:leading-[1.15]"
+              />
+            </h1>
 
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
               <div className="order-2 w-full text-left text-sm leading-relaxed text-[#d4d4d4] sm:text-base lg:order-1 lg:max-w-2xl lg:shrink-0 lg:text-lg">
                 <BlurText
-                  text="Detect defects instantly with AI-powered visual inspection. Improve accuracy, reduce waste, and maintain consistent product quality at scale. AI-powered visual inspection. Improve accuracy, reduce"
+                  text="Detect defects instantly with AI-powered visual inspection. Improve accuracy, reduce waste, and maintain consistent product quality at scale."
                   delay={30}
                   animateBy="words"
                   direction="top"
@@ -52,21 +49,20 @@ export const HeroSection = () => {
                 />
               </div>
 
-              <div className="order-1 text-3xl font-bold tracking-tight text-white sm:text-5xl lg:order-2 lg:text-[64px] lg:leading-[1.2]">
+              <div className="order-1 text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:order-2 lg:text-[64px] lg:leading-[1.15]">
                 <BlurText
                   text="with Vision AI"
                   delay={120}
                   animateBy="words"
                   direction="top"
-                  className="text-3xl font-bold text-white sm:text-5xl lg:text-[64px] lg:leading-[1.2]"
+                  className="text-3xl font-bold leading-tight text-white sm:text-5xl lg:text-[64px] lg:leading-[1.15]"
                 />
               </div>
             </div>
           </div>
 
           <div className="relative flex w-full flex-col">
-            
-            <div className="z-20 mb-6 flex items-center gap-3 sm:gap-4 lg:absolute lg:left-0 lg:top-0 lg:z-30 lg:mb-0">
+            <div className="z-20 mb-6 flex flex-wrap items-center gap-3 sm:gap-4 lg:absolute lg:left-0 lg:top-0 lg:z-30 lg:mb-0">
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -98,7 +94,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, scale: 1.05, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative h-[240px] w-full overflow-hidden rounded-[20px] sm:h-[380px] sm:rounded-[32px] lg:h-[520px] lg:rounded-[44px]"
+              className="relative h-[260px] w-full overflow-hidden rounded-[20px] sm:h-[380px] sm:rounded-[32px] lg:h-[520px] lg:rounded-[44px]"
             >
               <Image
                 src={heroImage}
@@ -111,7 +107,7 @@ export const HeroSection = () => {
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
 
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center justify-center gap-1 sm:bottom-4 lg:bottom-4 lg:right-8 lg:left-auto lg:translate-x-0 lg:gap-2">
+              <div className="absolute bottom-3 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center justify-center gap-1 sm:bottom-4 lg:bottom-4 lg:left-auto lg:right-8 lg:translate-x-0 lg:gap-2">
                 <div className="flex items-center -space-x-3 sm:-space-x-4">
                   {teamAvatars.map((img, idx) => (
                     <motion.div
@@ -147,7 +143,6 @@ export const HeroSection = () => {
                 </motion.span>
               </div>
             </motion.div>
-
           </div>
         </div>
       </Container>
