@@ -18,7 +18,23 @@ export const ValueSection = () => {
       <Container className="relative z-10 mx-auto max-w-6xl px-4 lg:px-6">
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="flex flex-col items-start text-left lg:col-span-7">
-            <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[48px] lg:leading-[1.15]">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              className="order-1 mb-6 flex justify-start lg:order-2 lg:mt-6 lg:mb-0"
+            >
+              <Badge
+                variant="outline"
+                className="inline-flex items-center gap-2 rounded-full border border-[#b66900]/50 bg-black/40 px-8 py-4 text-sm font-normal text-[#f59e0b] backdrop-blur-md"
+              >
+                <span className="h-2 w-2 rounded-full bg-[#f59e0b] shadow-[0_0_8px_#f59e0b]" />
+                Why It Matters
+              </Badge>
+            </motion.div>
+
+            <h2 className="order-2 max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl lg:order-1 lg:text-[48px] lg:leading-[1.15]">
               <BlurText
                 text="Deliver Measurable"
                 delay={80}
@@ -34,21 +50,6 @@ export const ValueSection = () => {
                 className="block text-3xl font-bold text-white sm:text-4xl lg:text-[48px] lg:leading-[1.15]"
               />
             </h2>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-              className="mt-6 flex justify-start"
-            >
-              <Badge
-                variant="outline"
-                className="inline-flex items-center gap-2 rounded-full border border-[#b66900]/50 bg-black/40 px-8 py-4 text-sm font-normal text-[#f59e0b] backdrop-blur-md"
-              >
-                <span className="h-2 w-2 rounded-full bg-[#f59e0b] shadow-[0_0_8px_#f59e0b]" />
-                Why It Matters
-              </Badge>
-            </motion.div>
           </div>
 
           <div className="flex items-center lg:col-span-5 lg:pt-18">
