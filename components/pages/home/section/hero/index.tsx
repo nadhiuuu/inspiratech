@@ -38,9 +38,9 @@ export const HeroSection = () => {
             </h1>
 
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
-              <div className="order-2 w-full text-left text-sm leading-relaxed text-[#d4d4d4] sm:text-base lg:order-1 lg:max-w-2xl lg:shrink-0 lg:text-lg">
+              <div className="order-2 w-full text-left text-base leading-relaxed text-[#d4d4d4] sm:text-base lg:order-1 lg:max-w-2xl lg:shrink-0 lg:text-lg">
                 <BlurText
-                  text="Detect defects instantly with AI-powered visual inspection. Improve accuracy, reduce waste, and maintain consistent product quality at scale."
+                  text="Detect defects instantly with AI-powered visual inspection. Improve accuracy, reduce waste, and maintain consistent product quality at scale. AI-powered visual inspection. Improve accuracy, reduce"
                   delay={30}
                   animateBy="words"
                   direction="top"
