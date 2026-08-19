@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
@@ -35,8 +36,31 @@ const navLinkClass = (active = false) =>
   );
 
 export const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Deteksi scroll untuk memberikan efek background transparan & border tipis
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="relative z-30 py-2.5 sm:py-3.5 font-['Plus_Jakarta_Sans',sans-serif]">
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 py-3 transition-all duration-300 font-['Plus_Jakarta_Sans',sans-serif]",
+        isScrolled
+          ? "border-b border-white/10 bg-black/60 backdrop-blur-md py-2.5 shadow-lg shadow-black/20"
+          : "bg-transparent py-3.5"
+      )}
+    >
       <Container className="mx-auto max-w-6xl px-4 lg:px-6">
         <div className="flex items-center justify-between gap-4 text-left text-white">
           <Link

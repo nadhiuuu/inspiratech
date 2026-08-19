@@ -19,7 +19,7 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative z-10 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] pt-4 pb-8 lg:pt-8 lg:pb-12"
+      className="relative z-10 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] pt-4 pb-8 lg:pt-20 lg:pb-12"
     >
       <div className="pointer-events-none absolute left-1/2 top-[-5%] -translate-x-1/2 h-[280px] w-[280px] rounded-full bg-[#b66900]/30 blur-[90px] sm:h-[350px] sm:w-[350px] lg:left-[-10%] lg:top-[-10%] lg:translate-x-0 lg:h-[500px] lg:w-[500px] lg:blur-[120px]" />
       <div className="pointer-events-none absolute right-[-5%] top-[10%] h-[200px] w-[200px] rounded-full bg-[#b66900]/20 blur-[80px] lg:right-[-10%] lg:top-[0%] lg:h-[400px] lg:w-[400px] lg:blur-[100px]" />
