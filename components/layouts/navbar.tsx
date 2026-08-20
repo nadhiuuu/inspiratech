@@ -38,7 +38,6 @@ const navLinkClass = (active = false) =>
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Deteksi scroll untuk memberikan efek background transparan & border tipis
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -80,6 +79,7 @@ export const Navbar = () => {
               InspiraTech
             </b>
           </Link>
+
           <NavigationMenu viewport={false} className="hidden lg:flex">
             <NavigationMenuList className="gap-6 xl:gap-12">
               {navItems.map((item, index) => (
@@ -94,14 +94,16 @@ export const Navbar = () => {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
+
           <div className="hidden lg:block">
             <Button
               type="button"
-              className="h-10 sm:h-11 rounded-full bg-[#b66900] px-5 xl:px-8 text-sm xl:text-base font-semibold text-white shadow-md transition-all hover:bg-[#b66900]/90 active:scale-95"
+              className="h-10 sm:h-11 rounded-full border-2 border-[#b66900] bg-[#b66900] px-5 xl:px-8 text-sm xl:text-base font-semibold text-white shadow-md transition-all duration-300 hover:bg-transparent hover:text-white active:scale-95"
             >
               Contact Us
             </Button>
           </div>
+
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -144,7 +146,7 @@ export const Navbar = () => {
                 
                 <Button
                   type="button"
-                  className="mt-4 h-10 w-full rounded-full bg-[#b66900] text-sm font-semibold text-white transition-all hover:bg-[#b66900]/90 active:scale-95"
+                  className="mt-4 h-10 w-full rounded-full border-2 border-[#b66900] bg-[#b66900] text-sm font-semibold text-white transition-all duration-300 hover:bg-transparent hover:text-white active:scale-95"
                 >
                   Contact Us
                 </Button>

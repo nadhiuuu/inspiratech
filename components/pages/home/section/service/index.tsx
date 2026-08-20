@@ -13,19 +13,22 @@ const services = [
   {
     id: 1,
     title: "Live Camera",
-    description: "Real-time video feed monitoring with low-latency camera integration to stream high-quality visual data.",
+    description:
+      "Real-time video feed monitoring with low-latency camera integration to stream high-quality visual data.",
     image: "/images/services/live-camera.jpg",
   },
   {
     id: 2,
     title: "AI Detection",
-    description: "Advanced models analyze each image in real-time to identify defects with pinpoint precision.",
+    description:
+      "Advanced models analyze each image in real-time to identify defects with pinpoint precision.",
     image: "/images/services/ai-detection.jpg",
   },
   {
     id: 3,
     title: "Instant Decision",
-    description: "Automated trigger system for quick sorting and immediate response based on real-time visual inspection.",
+    description:
+      "Automated trigger system for quick sorting and immediate response based on real-time visual inspection.",
     image: "/images/services/instant-decision.jpg",
   },
 ];
@@ -36,13 +39,12 @@ export const ServicesSection = () => {
   return (
     <section
       id="solution"
-      className="relative z-10 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] bg-black py-16 lg:py-24"
+      className="relative z-10 overflow-hidden bg-black py-16 font-['Plus_Jakarta_Sans',sans-serif] lg:py-24"
     >
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b66900]/15 blur-[140px]" />
 
       <Container className="relative z-10 mx-auto max-w-6xl px-4 lg:px-6">
         <div className="flex flex-col items-center text-center">
-          
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +71,7 @@ export const ServicesSection = () => {
             />
           </h2>
 
-          <div className="mt-12 mb-8 flex w-full items-center justify-between text-base text-[#888888]">
+          <div className="mb-8 mt-12 flex w-full items-center justify-between text-base text-[#888888]">
             <button
               type="button"
               className="transition-colors hover:text-white"
@@ -85,7 +87,7 @@ export const ServicesSection = () => {
             </button>
           </div>
 
-          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid w-full grid-cols-1 items-start gap-6 md:min-h-[480px] md:grid-cols-3">
             {services.map((service) => {
               const isHovered = hoveredId === service.id;
 
@@ -94,17 +96,21 @@ export const ServicesSection = () => {
                   key={service.id}
                   onMouseEnter={() => setHoveredId(service.id)}
                   onMouseLeave={() => setHoveredId(null)}
+                  onClick={() => setHoveredId(service.id)}
                   initial={false}
                   animate={{
-                    y: isHovered ? -6 : 0,
+                    height: isHovered ? "450px" : "360px",
                   }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="group relative h-[380px] w-full cursor-pointer overflow-hidden rounded-[24px] border border-white/10 bg-[#121212] sm:h-[420px]"
+                  transition={{
+                    duration: 0.4,
+                    ease: [0.25, 1, 0.5, 1],
+                  }}
+                  className="group relative w-full cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-[#121212] transition-shadow duration-300 hover:shadow-2xl hover:shadow-[#b66900]/10"
                 >
                   <motion.div
                     className="relative h-full w-full"
-                    animate={{ scale: isHovered ? 1.06 : 1 }}
-                    transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                    animate={{ scale: isHovered ? 1.05 : 1 }}
+                    transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
                   >
                     <Image
                       src={service.image}
@@ -118,15 +124,15 @@ export const ServicesSection = () => {
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"
                     animate={{
-                      opacity: isHovered ? 0.9 : 0.6,
+                      opacity: isHovered ? 0.95 : 0.6,
                     }}
                     transition={{ duration: 0.3 }}
                   />
 
-                  <div className="absolute top-4 right-4 z-20">
+                  <div className="absolute right-5 top-5 z-20">
                     <motion.div
                       animate={{
-                        scale: isHovered ? 1.1 : 1,
+                        scale: isHovered ? 1.08 : 1,
                       }}
                       transition={{ duration: 0.2 }}
                       className="flex h-10 w-10 items-center justify-center rounded-full bg-[#b66900] text-white shadow-lg"
@@ -148,9 +154,16 @@ export const ServicesSection = () => {
                       {isHovered && (
                         <motion.div
                           initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                          animate={{ opacity: 1, height: "auto", marginTop: 8 }}
+                          animate={{
+                            opacity: 1,
+                            height: "auto",
+                            marginTop: 8,
+                          }}
                           exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          transition={{
+                            duration: 0.35,
+                            ease: "easeInOut",
+                          }}
                           className="overflow-hidden"
                         >
                           <p className="text-xs leading-relaxed text-[#d4d4d4] sm:text-sm">
@@ -165,7 +178,7 @@ export const ServicesSection = () => {
             })}
           </div>
 
-          <div className="mt-12 flex justify-center">
+          <div className="mt-4 flex justify-center">
             <Button
               type="button"
               className="h-12 rounded-full border-2 border-[#b66900] bg-[#b66900] px-8 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-transparent hover:text-white active:scale-95"
@@ -173,7 +186,6 @@ export const ServicesSection = () => {
               All Services
             </Button>
           </div>
-
         </div>
       </Container>
     </section>

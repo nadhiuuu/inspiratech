@@ -37,7 +37,7 @@ export const KeyCapabilitiesSection = () => {
   return (
     <section
       id="capabilities"
-      className="relative z-10 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] bg-black py-20 lg:py-32 text-white"
+      className="relative z-10 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] bg-black py-20 lg:py-10 text-white"
     >
       <div className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b66900]/15 blur-[160px]" />
 

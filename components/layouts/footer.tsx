@@ -10,7 +10,6 @@ export const Footer = () => {
     <footer className="relative border-t border-white/10 bg-black font-['Plus_Jakarta_Sans',sans-serif] text-white">
       <Container className="mx-auto max-w-6xl px-4 py-10 sm:py-12 lg:px-6 lg:py-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-          {/* Section Brand / Logo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -24,14 +23,14 @@ export const Footer = () => {
                 alt="InspiraTech Logo"
                 width={36}
                 height={36}
-                className="h-8 w-8 sm:h-9 sm:w-9 object-contain"
+                className="h-8 w-8 object-contain sm:h-9 sm:w-9"
               />
-              <span className="text-xl sm:text-2xl font-semibold tracking-tight text-white">
+              <span className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
                 InspiraTech
               </span>
             </Link>
 
-            <p className="max-w-sm text-xs sm:text-sm leading-relaxed text-[#a1a1a1]">
+            <p className="max-w-sm text-xs leading-relaxed text-[#a1a1a1] sm:text-sm">
               AI-powered quality inspection system to improve accuracy and
               efficiency in manufacturing.
             </p>
@@ -41,7 +40,7 @@ export const Footer = () => {
                 href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#c67000] text-black transition-all duration-300 hover:scale-105 hover:bg-[#d87a00]"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#c67000] text-black transition-all duration-300 hover:scale-105 hover:bg-[#d87a00] sm:h-10 sm:w-10"
                 aria-label="Twitter / X"
               >
                 <svg
@@ -57,7 +56,7 @@ export const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#c67000] text-black transition-all duration-300 hover:scale-105 hover:bg-[#d87a00]"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#c67000] text-black transition-all duration-300 hover:scale-105 hover:bg-[#d87a00] sm:h-10 sm:w-10"
                 aria-label="LinkedIn"
               >
                 <svg
@@ -73,7 +72,7 @@ export const Footer = () => {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#c67000] text-black transition-all duration-300 hover:scale-105 hover:bg-[#d87a00]"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#c67000] text-black transition-all duration-300 hover:scale-105 hover:bg-[#d87a00] sm:h-10 sm:w-10"
                 aria-label="YouTube"
               >
                 <svg
@@ -87,93 +86,89 @@ export const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Section Navigation Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-            className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:col-span-8"
+            className="grid grid-cols-3 gap-x-2 gap-y-6 sm:gap-x-6 lg:col-span-8"
           >
             {/* Column 1 */}
             <div className="flex flex-col gap-3 sm:gap-4">
               <Link
                 href="/"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Homepage
               </Link>
               <Link
                 href="/solutions"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Solutions
               </Link>
               <Link
                 href="/pricing"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Pricing
               </Link>
               <Link
                 href="/about-and-tech"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 About and Tech
               </Link>
             </div>
-
-            {/* Column 2 */}
             <div className="flex flex-col gap-3 sm:gap-4">
               <Link
                 href="/automotive-inspection"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Automotive Inspection
               </Link>
               <Link
                 href="/food-quality-control"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Food Quality Control
               </Link>
               <Link
                 href="/defect-detection"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Defect Detection
               </Link>
               <Link
                 href="/visual-inspection-ai"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Visual Inspection AI
               </Link>
             </div>
 
-            {/* Column 3 */}
-            <div className="col-span-2 sm:col-span-1 flex flex-col gap-3 sm:gap-4">
+            <div className="flex flex-col gap-3 sm:gap-4">
               <Link
                 href="/about-us"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 About Us
               </Link>
               <Link
                 href="/our-team"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Our Team
               </Link>
               <Link
                 href="/careers"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Careers
               </Link>
               <Link
                 href="/case-studies"
-                className="text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#c67000]"
+                className="text-xs font-medium text-white transition-colors duration-200 hover:text-[#c67000] sm:text-base"
               >
                 Case Studies
               </Link>
@@ -182,7 +177,6 @@ export const Footer = () => {
         </div>
       </Container>
 
-      {/* Bottom Bar */}
       <div className="border-t border-[#3a2000] bg-[#221200] py-4 text-xs font-normal text-[#d1d1d1]">
         <Container className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 sm:flex-row lg:px-6">
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">

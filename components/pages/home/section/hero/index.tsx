@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layouts/container";
 import BlurText from "@/components/ui/blur-text";
 
-const heroImage = "/images/Subtract.png";
+const heroImageDesktop = "/images/Subtract.png";
+const heroImageFull = "/images/Subtract2.png";
 
 const teamAvatars = [
   "photo-1494790108377-be9c29b29330",
@@ -19,7 +20,7 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative z-10 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] pt-24 pb-12 sm:pt-28 lg:pt-32 lg:pb-16"
+      className="relative z-10 min-h-dvh overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] pb-12 pt-24 sm:pt-28 lg:pb-16 lg:pt-32"
     >
       <div className="pointer-events-none absolute left-1/2 top-[-5%] h-[280px] w-[280px] -translate-x-1/2 rounded-full bg-[#b66900]/30 blur-[90px] sm:h-[350px] sm:w-[350px] lg:left-[-10%] lg:top-[-10%] lg:h-[500px] lg:w-[500px] lg:translate-x-0 lg:blur-[120px]" />
       <div className="pointer-events-none absolute right-[-5%] top-[10%] h-[200px] w-[200px] rounded-full bg-[#b66900]/20 blur-[80px] lg:right-[-10%] lg:top-[0%] lg:h-[400px] lg:w-[400px] lg:blur-[100px]" />
@@ -90,14 +91,61 @@ export const HeroSection = () => {
               </motion.div>
             </div>
 
+            <div className="relative block lg:hidden">
+              <motion.div
+                initial={{ opacity: 0, scale: 1.03, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative h-[320px] w-full overflow-hidden rounded-[24px] sm:h-[400px] sm:rounded-[32px]"
+              >
+                <Image
+                  src={heroImageFull}
+                  alt="Industrial Plant Inspection"
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+
+                <div className="absolute -bottom-2 -right-2 z-30 rounded-tl-[24px] border-l border-t border-white/10 bg-black/90 px-5 py-3 backdrop-blur-md">
+                  <div className="flex flex-col items-center justify-center gap-1.5">
+                    <div className="flex items-center -space-x-3">
+                      {teamAvatars.map((img, idx) => (
+                        <div
+                          key={img}
+                          className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-black shadow-md sm:h-10 sm:w-10"
+                          style={{ zIndex: teamAvatars.length - idx }}
+                        >
+                          <Image
+                            src={`https://images.unsplash.com/${img}?auto=format&fit=crop&w=120&q=80`}
+                            alt="Expert Avatar"
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <span className="whitespace-nowrap text-xs font-semibold tracking-wide text-white">
+                      150+ Expert Team
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
             <motion.div
               initial={{ opacity: 0, scale: 1.05, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative h-[260px] w-full overflow-hidden rounded-[20px] sm:h-[380px] sm:rounded-[32px] lg:h-[520px] lg:rounded-[44px]"
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="relative hidden h-[520px] w-full overflow-hidden rounded-[44px] lg:block"
             >
               <Image
-                src={heroImage}
+                src={heroImageDesktop}
                 alt="Industrial Plant Inspection"
                 fill
                 priority
@@ -107,8 +155,8 @@ export const HeroSection = () => {
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
 
-              <div className="absolute bottom-3 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center justify-center gap-1 sm:bottom-4 lg:bottom-4 lg:left-auto lg:right-8 lg:translate-x-0 lg:gap-2">
-                <div className="flex items-center -space-x-3 sm:-space-x-4">
+              <div className="absolute bottom-4 right-8 z-30 flex flex-col items-center justify-center gap-2">
+                <div className="flex items-center -space-x-4">
                   {teamAvatars.map((img, idx) => (
                     <motion.div
                       key={img}
@@ -120,7 +168,7 @@ export const HeroSection = () => {
                         damping: 20,
                         delay: 0.65 + idx * 0.12,
                       }}
-                      className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-black/80 shadow-lg transition-transform duration-300 hover:scale-110 sm:h-11 sm:w-11 lg:h-14 lg:w-14"
+                      className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-black/80 shadow-lg transition-transform duration-300 hover:scale-110"
                       style={{ zIndex: teamAvatars.length - idx }}
                     >
                       <Image
@@ -137,7 +185,7 @@ export const HeroSection = () => {
                   initial={{ opacity: 0, filter: "blur(4px)" }}
                   animate={{ opacity: 1, filter: "blur(0px)" }}
                   transition={{ duration: 0.4, delay: 1.15 }}
-                  className="whitespace-nowrap text-[11px] font-medium tracking-wide text-[#e5e5e5] sm:text-sm lg:text-base"
+                  className="whitespace-nowrap text-base font-medium tracking-wide text-[#e5e5e5]"
                 >
                   150+ Expert Team
                 </motion.span>

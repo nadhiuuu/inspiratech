@@ -42,8 +42,11 @@ export const ProblemSection = () => {
 
   const handleScroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = direction === "left" ? -340 : 340;
-      scrollContainerRef.current.scrollBy({
+      const container = scrollContainerRef.current;
+      const cardWidth = window.innerWidth < 1024 ? container.clientWidth : 344;
+      const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+
+      container.scrollBy({
         left: scrollAmount,
         behavior: "smooth",
       });
@@ -56,6 +59,7 @@ export const ProblemSection = () => {
 
       <Container className="mx-auto max-w-6xl px-4 lg:px-8">
         <div className="grid grid-cols-1 gap-y-6 lg:grid-cols-12 lg:gap-x-8">
+          {/* Badge Problem Header */}
           <div className="lg:col-span-2 xl:col-span-2">
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -110,10 +114,13 @@ export const ProblemSection = () => {
                 </button>
               </motion.div>
             </div>
+          </div>
 
+          {/* Full-width Carousel spanning across col-span-12 */}
+          <div className="mt-10 lg:col-span-12 lg:mt-12">
             <div
               ref={scrollContainerRef}
-              className="no-scrollbar mt-10 flex w-full gap-6 overflow-x-auto scroll-smooth pb-4 lg:mt-12"
+              className="no-scrollbar flex w-full snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 pl-0 lg:snap-none lg:pl-[calc(100%/12*2+0.5rem)]"
             >
               {problems.map((item, index) => (
                 <motion.div
@@ -122,7 +129,7 @@ export const ProblemSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.12 }}
-                  className="flex shrink-0 flex-col gap-4"
+                  className="flex shrink-0 snap-center flex-col items-center gap-4 lg:snap-align-none lg:items-start"
                 >
                   <div className="relative h-[290px] w-[270px] overflow-hidden rounded-[28px] sm:h-[330px] sm:w-[300px] lg:h-[350px] lg:w-[320px]">
                     <Image
