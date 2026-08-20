@@ -7,6 +7,7 @@ import { KeyCapabilitiesSection } from "@/components/pages/home/section/capabili
 import { ValueSection } from "@/components/pages/home/section/value";
 import { HowItWorksSection } from "@/components/pages/home/section/work";
 import { TestimonialSection } from "@/components/pages/home/section/testimoni";
+import { CtaSection } from "@/components/pages/home/section/CTA";
 
 export const HomePage = () => (
   <main className="min-h-screen bg-background">
@@ -19,5 +20,6 @@ export const HomePage = () => (
     <ValueSection />
     <HowItWorksSection />
     <TestimonialSection />
+    <CtaSection />
   </main>
 );
