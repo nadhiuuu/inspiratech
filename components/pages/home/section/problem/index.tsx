@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, animate } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Container } from "@/components/layouts/container";
 import { Badge } from "@/components/ui/badge";
@@ -41,16 +41,28 @@ export const ProblemSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      const cardWidth = window.innerWidth < 1024 ? container.clientWidth : 344;
-      const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+    if (!scrollContainerRef.current) return;
 
-      container.scrollBy({
-        left: scrollAmount,
-        behavior: "smooth",
-      });
-    }
+    const container = scrollContainerRef.current;
+    
+    // Menghitung jarak scroll berdasarkan ukuran card + gap (24px)
+    const cardElement = container.firstElementChild as HTMLElement;
+    const cardWidth = cardElement ? cardElement.offsetWidth + 24 : 320;
+
+    const currentScroll = container.scrollLeft;
+    const targetScroll =
+      direction === "left"
+        ? Math.max(0, currentScroll - cardWidth)
+        : currentScroll + cardWidth;
+
+    // Smooth Scroll menggunakan Framer Motion animate untuk transisi super halus
+    animate(currentScroll, targetScroll, {
+      duration: 0.6,
+      ease: [0.25, 1, 0.5, 1], // Cubic-bezier untuk transisi ultra smooth
+      onUpdate: (value) => {
+        container.scrollLeft = value;
+      },
+    });
   };
 
   return (
@@ -116,11 +128,15 @@ export const ProblemSection = () => {
             </div>
           </div>
 
-          {/* Full-width Carousel spanning across col-span-12 */}
+          {/* Full-width Carousel */}
           <div className="mt-10 lg:col-span-12 lg:mt-12">
             <div
               ref={scrollContainerRef}
-              className="no-scrollbar flex w-full snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 pl-0 lg:snap-none lg:pl-[calc(100%/12*2+0.5rem)]"
+              className="no-scrollbar flex w-full gap-6 overflow-x-auto pb-4 pl-0 lg:pl-[calc(100%/12*2+0.5rem)]"
+              style={{
+                scrollBehavior: "auto", // Menggunakan JS animation untuk kelancaran mutlak
+                WebkitOverflowScrolling: "touch", // Smooth scroll bawaan iOS Safari
+              }}
             >
               {problems.map((item, index) => (
                 <motion.div
@@ -129,7 +145,7 @@ export const ProblemSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.12 }}
-                  className="flex shrink-0 snap-center flex-col items-center gap-4 lg:snap-align-none lg:items-start"
+                  className="flex shrink-0 flex-col items-center gap-4 lg:items-start"
                 >
                   <div className="relative h-[290px] w-[270px] overflow-hidden rounded-[28px] sm:h-[330px] sm:w-[300px] lg:h-[350px] lg:w-[320px]">
                     <Image
